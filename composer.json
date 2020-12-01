@@ -1,0 +1,23 @@
+{
+    "name": "tekpro/fidelis",
+    "type": "library",
+    "description": "Integration for fidelis",
+    "keywords": ["integration","services","rest","fidelis"],
+    "license": "MIT",
+    "version" : "0.1.0",
+    "authors": [
+        {
+            "name": "Jose Ramos",
+            "email": "jramos@tekpro.cl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Fidelis\\": "src",
+            "Fidelis\\Test\\" : "test"
+        }
+    },
+    "require-dev": {
+        "overtrue/phplint": "^2.0"
+    }
+}
