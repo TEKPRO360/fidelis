@@ -24,17 +24,21 @@ class Fidelis extends Rest
 	CONST AUTH_BASIC_TEST_USER = 'pxYCEbhb5FyvaPm2vKA85FcNn6Ften3AkDW';
 	CONST AUTH_BASIC_TEST_PASSWORD = 'RvXtERmYfcEXSCduUiVgAgXej';
 
-	public function __construct(string $username = '', string $password = '', bool $sandbox = true)
+	public function __construct(string $username = '', string $password = '', string $usr = '', string $pass = '', bool $sandbox = true)
 	{
 		$this->username = !empty($username) ? $username : self::AUTH_BASIC_TEST_USER;
 		$this->password = !empty($password) ? $password : self::AUTH_BASIC_TEST_PASSWORD;
+		$this->usr = !empty($usr) ? $usr : self::LOGIN_TEST_USER;
+		$this->pass = !empty($pass) ? $pass : self::LOGIN_TEST_PASSWORD;
 		$this->sandbox = $sandbox;
 	}
 
-	public function setCredentials(string $username, string $password)
+	public function setCredentials(string $username, string $password, string $usr, string $pass)
 	{
 		$this->username = !empty($username) ? $username : self::AUTH_BASIC_TEST_USER;
 		$this->password = !empty($password) ? $password : self::AUTH_BASIC_TEST_PASSWORD;
+		$this->usr = !empty($usr) ? $usr : self::LOGIN_TEST_USER;
+		$this->pass = !empty($pass) ? $pass : self::LOGIN_TEST_PASSWORD;
 	}
 
 	public function setSandbox(bool $sandbox = true)
@@ -51,8 +55,8 @@ class Fidelis extends Rest
 		$access = $this->_request($this->sandbox ? self::URL_TOKEN_TEST : self::URL_TOKEN, array(
 			'method' => 'POST',
 			'data' => array(
-				'usuario' => self::LOGIN_TEST_USER,
-				'clave' => self::LOGIN_TEST_PASSWORD
+				'usuario' => $this->usr,
+				'clave' => $this->pass
 			)
 		));
 
