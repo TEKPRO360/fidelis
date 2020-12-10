@@ -20,6 +20,10 @@ class Rest
 
 	protected $password;
 
+    protected $usr;
+
+    protected $pass;
+
 	protected $sandbox = true;
 
 	private $_url;
@@ -94,7 +98,7 @@ class Rest
     			'errors' => $e->getErrors()
     		); 
 
-    		throw new Exception("RESTMagento : {$e->getMessage()}", $errorList, $e->getCode(), $e->getPrevious());
+    		throw new Exception("RESTFidelis : {$e->getMessage()}", $errorList, $e->getCode(), $e->getPrevious());
     	}finally {
     		if(!is_null($curl)) curl_close($curl);
     	}
